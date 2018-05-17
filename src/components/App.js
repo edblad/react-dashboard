@@ -19,7 +19,7 @@ class App extends Component {
       <div className="App">
         <Timer seconds={5} />
         <Postit value={this.state.postitText} saveText={this.saveText} />
-        <Clock time={new Date()} />
+        <Clock />
       </div>
     );
   }

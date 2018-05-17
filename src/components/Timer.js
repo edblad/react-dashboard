@@ -14,36 +14,36 @@ class Timer extends Component {
     countDown = () => {
         this.setState({ startButton: false });
 
-        setInterval(() => {
-            // console.log(this.state.secondsLeft);
-            if (this.state.secondsLeft > 0) {
-                this.setState(
-                    { 
-                        secondsLeft: this.state.secondsLeft - 1
-                    }
-                );
-            }
-            if (this.state.secondsLeft === 0){
-                this.setState(
-                    { 
-                        style: {
-                            backgroundColor: 'salmon'
-                        },
-                        resetButton: true
-                    }
-                );
-            }
-        }, 1000);
+        let intervalId = setInterval(
+            () => this.tick(intervalId),
+            1000
+        );
+    }
+
+    tick = (intervalId) => {
+        if (this.state.secondsLeft > 0) {
+            this.setState({ 
+                secondsLeft: this.state.secondsLeft - 1
+            });
+        }
+        if (this.state.secondsLeft === 0){
+            clearInterval(intervalId);
+            this.setState({ 
+                style: {
+                    backgroundColor: 'salmon'
+                },
+                resetButton: true
+            });
+        }
+        console.log(this.state.secondsLeft)
     }
 
     resetTimer = () => {
-        this.setState(
-            { 
-                secondsLeft: this.props.seconds, 
-                style: { backgroundColor: 'black', color: 'white'},
-                resetButton: false
-            }
-        );
+        this.setState({ 
+            secondsLeft: this.props.seconds, 
+            style: { backgroundColor: 'black', color: 'white'},
+            resetButton: false
+        });
     }
 
     render(){

@@ -1,15 +1,27 @@
 import React, { Component } from 'react';
 
-// function Clock(props) {
-//     return (
-//         <p>{ props.time.toLocaleTimeString() }</p>
-//     )
-// }
 class Clock extends Component {
+    state = {
+        date: new Date()
+      }
+    
+      componentDidMount() {
+        setInterval(
+          () => this.tick(),
+          1000
+        );
+      }
+    
+      tick = () => {
+        this.setState({
+          date: new Date()
+        });
+      }
+
     render() {
         return (
             <div className="clock">
-               { this.props.time.toLocaleTimeString() }
+               { this.state.date.toLocaleTimeString() }
             </div>
         )
     }
