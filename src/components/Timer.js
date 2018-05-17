@@ -2,36 +2,55 @@ import React, { Component } from 'react';
 
 class Timer extends Component {
     state = {
-        secondsLeft: this.props.secondsLeft,
+        seconds: this.props.seconds,
+        secondsLeft: this.props.seconds,
+        style: {
+            backgroundColor: '#000',
+            color: '#fff'
+        },
+        resetButton: false
     }
 
     countDown = () => {
-        if(this.state.secondsLeft > 0){
-          this.setState({ secondsLeft: this.state.secondsLeft - 1 });
-        }
-    }
-
-    componentDidMount() {
         this.interval = setInterval( () => {
             console.log(this.state.secondsLeft);
             if (this.state.secondsLeft > 0) {
                 this.setState({ secondsLeft: this.state.secondsLeft - 1 });
             }
             if (this.state.secondsLeft === 0){
-                this.props.handleChange(0)
+                this.setState(
+                    { 
+                        style: {
+                            backgroundColor: '#fff',
+                            color: '#000'
+                        },
+                        resetButton: true
+                    }
+                );
             }
         }, 1000);
     }
 
-    componentWillUnmount() {
-        clearInterval(this.interval);
+    resetTimer = () => {
+        this.setState({ secondsLeft: this.props.seconds });
     }
-    
+
     render(){
+        let countDownButton = <button onClick={this.countDown}>Count down</button>;
+        if(this.state.resetButton){
+            countDownButton = null;
+        }
+
+        let resetButton = null;
+        if(this.state.resetButton){
+            resetButton = <button onClick={this.resetTimer}>Reset</button>;
+        }
+
         return (
-            <div className="timer">
-                <button onClick={this.countDown}>Count down</button>
-                <p>{this.state.secondsLeft}</p>
+            <div style={this.state.style}>
+                { countDownButton }
+                { resetButton }
+                <p>{this.state.secondsLeft} seconds left</p>
             </div>
         )
     }
