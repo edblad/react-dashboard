@@ -1,21 +1,21 @@
 import React, { Component } from 'react';
-import Counter from './Counter';
+import Timer from './Timer';
 import '../App.css';
 
 class App extends Component {
   state = {
-    seconds: 60,
+    secondsLeft: 10
   }
 
-  countDown = () => {
-    this.setState({ seconds: this.state.seconds - 1 });
+  handleChange = (timeLeft) => {
+    this.setState({ secondsLeft: timeLeft });
+    console.log(timeLeft)
   }
-
+  
   render() {
     return (
       <div className="App">
-        <button onClick={this.countDown}>Count down</button>
-        <Counter seconds={this.state.seconds} />
+        <Timer secondsLeft={this.state.secondsLeft} handleChange={this.handleChange} />
       </div>
     );
   }
