@@ -5,19 +5,19 @@ import '../App.css';
 
 class App extends Component {
   state = {
-    text: ''
+    text: localStorage.getItem('text')
   }
 
   saveText = (event) => {
       this.setState({ text: event.target.value  });
-      console.log(this.state.text);
+      localStorage.setItem('text', event.target.value);
   }
 
   render() {
     return (
       <div className="App">
         <Timer seconds={5} />
-        <Postit saveText={this.saveText} />
+        <Postit saveText={this.saveText} value={this.state.text} />
       </div>
     );
   }
