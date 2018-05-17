@@ -42,12 +42,13 @@ class Timer extends Component {
         this.setState({ 
             secondsLeft: this.props.seconds, 
             style: { backgroundColor: 'black', color: 'white'},
-            resetButton: false
+            resetButton: false,
+            startButton: true
         });
     }
 
     render(){
-        let startButton = <button onClick={this.countDown}>Count down</button>;
+        let startButton = <button onClick={this.countDown}>Start</button>;
         if(!this.state.startButton){
             startButton = null;
         }
