@@ -13,8 +13,8 @@ class Timer extends Component {
 
     countDown = () => {
         this.setState({ startButton: false });
-        
-        setInterval( () => {
+
+        setInterval(() => {
             // console.log(this.state.secondsLeft);
             if (this.state.secondsLeft > 0) {
                 this.setState(
