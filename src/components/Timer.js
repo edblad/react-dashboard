@@ -2,27 +2,32 @@ import React, { Component } from 'react';
 
 class Timer extends Component {
     state = {
-        seconds: this.props.seconds,
         secondsLeft: this.props.seconds,
         style: {
-            backgroundColor: '#000',
-            color: '#fff'
+            backgroundColor: 'black',
+            color: 'white'
         },
+        startButton: true,
         resetButton: false
     }
 
     countDown = () => {
-        this.interval = setInterval( () => {
-            console.log(this.state.secondsLeft);
+        this.setState({ startButton: false });
+        
+        setInterval( () => {
+            // console.log(this.state.secondsLeft);
             if (this.state.secondsLeft > 0) {
-                this.setState({ secondsLeft: this.state.secondsLeft - 1 });
+                this.setState(
+                    { 
+                        secondsLeft: this.state.secondsLeft - 1
+                    }
+                );
             }
             if (this.state.secondsLeft === 0){
                 this.setState(
                     { 
                         style: {
-                            backgroundColor: '#fff',
-                            color: '#000'
+                            backgroundColor: 'salmon'
                         },
                         resetButton: true
                     }
@@ -32,13 +37,19 @@ class Timer extends Component {
     }
 
     resetTimer = () => {
-        this.setState({ secondsLeft: this.props.seconds });
+        this.setState(
+            { 
+                secondsLeft: this.props.seconds, 
+                style: { backgroundColor: 'black', color: 'white'},
+                resetButton: false
+            }
+        );
     }
 
     render(){
-        let countDownButton = <button onClick={this.countDown}>Count down</button>;
-        if(this.state.resetButton){
-            countDownButton = null;
+        let startButton = <button onClick={this.countDown}>Count down</button>;
+        if(!this.state.startButton){
+            startButton = null;
         }
 
         let resetButton = null;
@@ -48,7 +59,7 @@ class Timer extends Component {
 
         return (
             <div style={this.state.style}>
-                { countDownButton }
+                { startButton }
                 { resetButton }
                 <p>{this.state.secondsLeft} seconds left</p>
             </div>

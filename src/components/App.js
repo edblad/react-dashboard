@@ -1,21 +1,23 @@
 import React, { Component } from 'react';
 import Timer from './Timer';
+import Postit from './Postit';
 import '../App.css';
 
 class App extends Component {
-  // state = {
-  //   secondsLeft: 5
-  // }
+  state = {
+    text: ''
+  }
 
-  // handleChange = (timeLeft) => {
-  //   this.setState({ secondsLeft: timeLeft });
-  //   console.log(timeLeft)
-  // }
-  
+  saveText = (event) => {
+      this.setState({ text: event.target.value  });
+      console.log(this.state.text);
+  }
+
   render() {
     return (
       <div className="App">
-        <Timer seconds={60} />
+        <Timer seconds={5} />
+        <Postit saveText={this.saveText} />
       </div>
     );
   }
