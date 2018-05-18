@@ -1,11 +1,9 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-class Postit extends Component {
-    render() {
-        return (
-            <textarea value={this.props.value} onChange={this.props.saveText} name="text" />
-        )
-    }
+function Postit(props) {
+    return (
+        <textarea value={props.value} onChange={props.saveText} name="text" />
+    )
 }
 
 export default Postit;

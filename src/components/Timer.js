@@ -35,7 +35,6 @@ class Timer extends Component {
                 resetButton: true
             });
         }
-        console.log(this.state.secondsLeft)
     }
 
     resetTimer = () => {
