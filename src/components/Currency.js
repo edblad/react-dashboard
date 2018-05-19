@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 
 class Currency extends Component {
     state = {
-        data: [],
         EUR: '',
         SEK: ''
     }
@@ -15,8 +14,7 @@ class Currency extends Component {
         fetch('http://data.fixer.io/api/latest?access_key=fe21b7321aa53d1a4dd706d7fff65038')
         .then(response => response.json())
         .then((data) => {
-            this.setState({ data });
-            this.calcCurrency();
+            this.setState({ SEK: data.rates.SEK, EUR: data.rates.EUR  })
         })
         .catch(error => {
             console.log(error);
@@ -24,19 +22,16 @@ class Currency extends Component {
     }
 
     calcCurrency = () => {
-        this.setState({
-            EUR: this.state.data.base,
-            SEK: this.state.data.rates.SEK
-        });
-        console.log(this.state.EUR)
-        console.log(this.state.SEK);
+        let sum = this.state.EUR / this.state.SEK;
+        return sum.toFixed(3);
     }
 
     render(){
         return (
             <div>
                 <button>Update currency</button>
-                <p>{this.state.SEK}</p>
+                <p>{this.state.EUR} euro kostar {this.state.SEK} kr</p>
+                <p>1 kr kostar { this.calcCurrency() } euro</p>
             </div>
         );
     }
