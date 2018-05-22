@@ -4,6 +4,8 @@ import Postit from './Postit';
 import Clock from './Clock';
 import Currency from './Currency';
 import Weather from './Weather';
+import SearchForm from './test';
+import styled from 'styled-components';
 import '../App.css';
 
 class App extends Component {
@@ -15,7 +17,7 @@ class App extends Component {
       this.setState({ postitText: event.target.value  });
       localStorage.setItem('text', event.target.value);
   }
-  
+
   render() {
     return (
       <div className="App">
@@ -24,6 +26,7 @@ class App extends Component {
         <Clock />
         <Currency currencyData={this.state.data} />
         <Weather />
+        <SearchForm />
       </div>
     );
   }
