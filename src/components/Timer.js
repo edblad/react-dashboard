@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
+import styled from 'styled-components';
+
+
 
 class Timer extends Component {
     state = {
         secondsLeft: this.props.seconds,
-        style: {
-            backgroundColor: 'black',
-            color: 'white'
-        },
+        style: {},
         startButton: true,
         resetButton: false
     }
@@ -57,12 +57,17 @@ class Timer extends Component {
             resetButton = <button onClick={this.resetTimer}>Reset</button>;
         }
 
+        const Container = styled.div`
+            background-color: ${props => props.primary ? 'black' : 'salmon'};
+            color: white
+        `;
+
         return (
-            <div style={this.state.style}>
+            <Container>
                 { startButton }
                 { resetButton }
                 <p>{this.state.secondsLeft} seconds left</p>
-            </div>
+            </Container>
         )
     }
 }

@@ -43,7 +43,7 @@ class Weather extends Component {
         // });
         
         return (
-            <div>Weather {  }</div>
+            <div>Weather</div>
         )
     }
 }
