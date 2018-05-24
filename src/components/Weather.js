@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import Container from './styled/Container';
+import ContainerHeader from './styled/ContainerHeader';
+import ContainerContent from './styled/ContainerContent';
 
 class Weather extends Component {
     state = {
@@ -44,8 +46,9 @@ class Weather extends Component {
         // });
         
         return (
-            <Container>
-                Weather
+            <Container background='white'>
+                <ContainerHeader>Väder</ContainerHeader>
+                <ContainerContent>Väder</ContainerContent>
             </Container>
         )
     }

@@ -5,7 +5,8 @@ import Clock from './Clock';
 import Currency from './Currency';
 import Weather from './Weather';
 //import SearchForm from './test';
-import Header from './styled/Header';
+import Header from './Header';
+//import Background from './styled/Background';
 import Main from './styled/Main';
 import styled from 'styled-components';
 import '../App.css';
@@ -23,15 +24,17 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Header></Header>
-        <Main>
-          <Timer seconds={5} />
-          <Postit value={this.state.postitText} saveText={this.saveText} />
-          <Clock />
-          <Currency currencyData={this.state.data} />
-          <Weather />
-          {/*<SearchForm />*/}
-        </Main>
+        
+          <Header />
+          <Main>
+            <Timer seconds={5} />
+            <Postit value={this.state.postitText} saveText={this.saveText} />
+            <Clock />
+            <Currency currencyData={this.state.data} />
+            <Weather />
+            {/*<SearchForm />*/}
+          </Main>
+       
       </div>
     );
   }

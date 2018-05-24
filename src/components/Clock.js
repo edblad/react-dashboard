@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import Container from './styled/Container';
+import ContainerHeader from './styled/ContainerHeader';
+import ContainerContent from './styled/ContainerContent';
 
 class Clock extends Component {
     state = {
@@ -21,8 +23,11 @@ class Clock extends Component {
 
     render() {
         return (
-            <Container>
-               { this.state.date.toLocaleTimeString() }
+            <Container background='white'>
+              <ContainerHeader>Klocka</ContainerHeader>
+              <ContainerContent>
+                { this.state.date.toLocaleTimeString() }
+              </ContainerContent>
             </Container>
         )
     }

@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
-//import styled from 'styled-components';
 import Container from './styled/Container';
+import ContainerHeader from './styled/ContainerHeader';
+import ContainerContent from './styled/ContainerContent';
 
 class Timer extends Component {
     state = {
         secondsLeft: this.props.seconds,
-        style: { backgroundColor: 'black', color: 'white'},
         startButton: true,
-        resetButton: false
+        resetButton: false,
+        done: false
     }
 
     countDown = () => {
@@ -28,10 +29,8 @@ class Timer extends Component {
         if (this.state.secondsLeft === 0){
             clearInterval(intervalId);
             this.setState({ 
-                style: {
-                    backgroundColor: 'salmon'
-                },
-                resetButton: true
+                resetButton: true,
+                done: true
             });
         }
     }
@@ -39,9 +38,9 @@ class Timer extends Component {
     resetTimer = () => {
         this.setState({ 
             secondsLeft: this.props.seconds, 
-            style: { backgroundColor: 'black', color: 'white'},
             resetButton: false,
-            startButton: true
+            startButton: true,
+            done: false
         });
     }
 
@@ -56,17 +55,37 @@ class Timer extends Component {
             resetButton = <button onClick={this.resetTimer}>Reset</button>;
         }
 
-        // const Container = styled.div`
-        //     background-color: ${props => props.primary ? 'black' : 'salmon'};
-        //     color: white
-        // `;
-
+        let timer = () => {
+            let timerOutput = '';
+            
+            if(!this.state.done){
+                return timerOutput = (
+                    <Container background='white'>
+                        <ContainerHeader>Timer</ContainerHeader>
+                        <ContainerContent>
+                            { startButton }
+                            { resetButton }
+                            <p>{this.state.secondsLeft} seconds left</p>
+                        </ContainerContent>
+                    </Container>
+                )
+            }
+            
+            return timerOutput = (
+                <Container background='salmon'>
+                    <ContainerHeader>Timer</ContainerHeader>
+                    <ContainerContent>  
+                        { startButton }
+                        { resetButton }
+                        <p>{this.state.secondsLeft} seconds left</p>
+                    </ContainerContent>
+                </Container>
+            )
+            
+        }
+        
         return (
-            <Container style={this.state.style}>
-                { startButton }
-                { resetButton }
-                <p>{this.state.secondsLeft} seconds left</p>
-            </Container>
+             timer()
         )
     }
 }
