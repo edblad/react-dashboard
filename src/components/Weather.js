@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Container from './styled/Container';
 
 class Weather extends Component {
     state = {
@@ -43,7 +44,9 @@ class Weather extends Component {
         // });
         
         return (
-            <div>Weather</div>
+            <Container>
+                Weather
+            </Container>
         )
     }
 }

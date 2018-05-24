@@ -4,8 +4,9 @@ import Postit from './Postit';
 import Clock from './Clock';
 import Currency from './Currency';
 import Weather from './Weather';
-import SearchForm from './test';
-//import MainContainer from './MainContainer';
+//import SearchForm from './test';
+import Header from './styled/Header';
+import Main from './styled/Main';
 import styled from 'styled-components';
 import '../App.css';
 
@@ -21,13 +22,16 @@ class App extends Component {
 
   render() {
     return (
-      <div className="container">
+      <div className="App">
+        <Header></Header>
+        <Main>
           <Timer seconds={5} />
           <Postit value={this.state.postitText} saveText={this.saveText} />
           <Clock />
           <Currency currencyData={this.state.data} />
           <Weather />
-          <SearchForm />
+          {/*<SearchForm />*/}
+        </Main>
       </div>
     );
   }

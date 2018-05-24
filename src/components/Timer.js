@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 //import styled from 'styled-components';
+import Container from './styled/Container';
 
 class Timer extends Component {
     state = {
@@ -61,11 +62,11 @@ class Timer extends Component {
         // `;
 
         return (
-            <div style={this.state.style}>
+            <Container style={this.state.style}>
                 { startButton }
                 { resetButton }
                 <p>{this.state.secondsLeft} seconds left</p>
-            </div>
+            </Container>
         )
     }
 }

@@ -1,8 +1,11 @@
 import React from 'react';
+import Container from './styled/Container';
 
 function Postit(props) {
     return (
-        <textarea value={props.value} onChange={props.saveText} name="text" />
+        <Container>
+            <textarea value={props.value} onChange={props.saveText} name="text" />
+        </Container>
     )
 }
 

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Container from './styled/Container';
 
 class Currency extends Component {
     state = {
@@ -31,12 +32,12 @@ class Currency extends Component {
 
     render(){
         return (
-            <div>
+            <Container>
                 <button onClick={this.fetchCurrency}>Update currency</button>
                 <p>{ this.state.date }</p>
                 <p>{this.state.rates.EUR} euro kostar {this.state.rates.SEK} kr</p>
                 <p>1 kr kostar { this.calcCurrency() } euro</p>
-            </div>
+            </Container>
         );
     }
 }
