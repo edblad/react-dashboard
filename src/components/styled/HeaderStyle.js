@@ -2,9 +2,14 @@ import React from 'react';
 import styled from 'styled-components';
 
 const HeaderStyle = styled.header`
-    height: 50px;
     background: #fff;
     border-bottom: 1px solid #d2d2db;
+    padding: 10px 0;
+
+    @media screen and (min-width: 700px){
+        text-align: left;
+        padding: 10px 11%;
+    }
 `;
 
 export default HeaderStyle;

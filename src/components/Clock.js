@@ -24,8 +24,8 @@ class Clock extends Component {
     render() {
         return (
             <Container background='white'>
-              <ContainerHeader>Klocka</ContainerHeader>
-              <ContainerContent>
+               <ContainerHeader text='Klocka'/>
+              <ContainerContent fontSize='3em'>
                 { this.state.date.toLocaleTimeString() }
               </ContainerContent>
             </Container>

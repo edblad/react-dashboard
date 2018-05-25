@@ -8,6 +8,7 @@ function Container(props) {
         border: solid 1px #d2d2db;
         border-radius: 5px;
         background: ${props.background};
+        color: #202020;
         
         @media screen and (min-width: 700px){
             width: calc(50% - 20px);

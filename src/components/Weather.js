@@ -47,7 +47,7 @@ class Weather extends Component {
         
         return (
             <Container background='white'>
-                <ContainerHeader>Väder</ContainerHeader>
+                <ContainerHeader text='Väder'/>
                 <ContainerContent>Väder</ContainerContent>
             </Container>
         )

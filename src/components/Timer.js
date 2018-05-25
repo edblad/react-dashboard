@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Container from './styled/Container';
 import ContainerHeader from './styled/ContainerHeader';
 import ContainerContent from './styled/ContainerContent';
+import Button from './styled/Button';
 
 class Timer extends Component {
     state = {
@@ -61,7 +62,7 @@ class Timer extends Component {
             if(!this.state.done){
                 return timerOutput = (
                     <Container background='white'>
-                        <ContainerHeader>Timer</ContainerHeader>
+                        <ContainerHeader text='Timer'/>
                         <ContainerContent>
                             { startButton }
                             { resetButton }
@@ -73,7 +74,7 @@ class Timer extends Component {
             
             return timerOutput = (
                 <Container background='salmon'>
-                    <ContainerHeader>Timer</ContainerHeader>
+                    <ContainerHeader text='Timer'/>
                     <ContainerContent>  
                         { startButton }
                         { resetButton }

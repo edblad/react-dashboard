@@ -35,7 +35,7 @@ class Currency extends Component {
     render(){
         return (
             <Container background='white'>
-                <ContainerHeader>Valutakurs</ContainerHeader>
+                <ContainerHeader text='Valutakurs'/>
                 <ContainerContent>
                     <button onClick={this.fetchCurrency}>Update currency</button>
                     <p>{ this.state.date }</p>
