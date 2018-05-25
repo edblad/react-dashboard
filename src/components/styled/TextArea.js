@@ -2,13 +2,16 @@ import React from 'react';
 import styled from 'styled-components';
 
 const TextArea = styled.textarea`
-    width: 100%;
-    height: 150px;
+    margin: 10px;
     padding: 15px;
     border: none;
     border-radius: 5px;
     background: #000;
     color: #fff;
+
+    @media screen and (min-width: 700px){
+        width: calc(50% - 20px);
+    }
 `;
 
 export default TextArea;
