@@ -46,14 +46,14 @@ class Timer extends Component {
     }
 
     render(){
-        let startButton = <button onClick={this.countDown}>Start</button>;
+        let startButton = <Button onClick={this.countDown} text="Start" style="green" />;
         if(!this.state.startButton){
             startButton = null;
         }
 
         let resetButton = null;
         if(this.state.resetButton){
-            resetButton = <button onClick={this.resetTimer}>Reset</button>;
+            resetButton = <Button onClick={this.resetTimer} text="Reset" style="red" />;
         }
 
         let timer = () => {

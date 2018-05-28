@@ -15,7 +15,7 @@ function Container(props) {
         }
     `;
 
-    return (<ContainerStyle>{ props.children }</ContainerStyle>)
+    return (<ContainerStyle>{ props.children }</ContainerStyle>);
 }
 
 export default Container;

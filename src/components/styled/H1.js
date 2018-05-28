@@ -8,7 +8,7 @@ function H1(props) {
 
     return (
         <H1Style>{ props.text }</H1Style>
-    )
+    );
 }
 
 

@@ -17,7 +17,7 @@ class Weather extends Component {
         fetch('http://api.openweathermap.org/data/2.5/forecast?units=metric&id=2673722&APPID=32f9c59ac069b4b06223120ca2052ef5')
         .then(response => response.json())
         .then((data) => {
-            this.setState({ latestWeather: data.list[0] })
+            this.setState({ latestWeather: data })
         })
         .catch(error => {
             console.log(error);
@@ -26,7 +26,27 @@ class Weather extends Component {
 
   
     render() {
-       console.log(this.state.latestWeather)
+        console.log(this.state.latestWeather.list)
+
+
+        
+        // let newArr = Object.keys(this.state.latestWeather);
+        // console.log(newArr);
+
+        Object.keys(this.state.latestWeather).map((key, index) => {
+            const myItem = this.state.latestWeather[key]
+            // return <MyComponent myItem={myItem} key={index} />
+            console.log(myItem);
+            console.log(key);
+          })
+
+        // const currentWeather = this.state.latestWeather.map((item, index) => {
+        //     console.log(item);
+        // });
+
+
+
+
         // var data1 = [1, 4, 9, 16];
 
         // // pass a function to map
