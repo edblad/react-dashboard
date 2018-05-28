@@ -27,11 +27,11 @@ class App extends Component {
         
           <Header />
           <Main>
-            <Timer seconds={5} />
             <Postit value={this.state.postitText} saveText={this.saveText} />
             <Clock />
-            <Currency currencyData={this.state.data} />
             <Weather />
+            <Currency currencyData={this.state.data} />
+            <Timer seconds={5} />
             {/*<SearchForm />*/}
           </Main>
        

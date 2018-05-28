@@ -56,37 +56,20 @@ class Timer extends Component {
             resetButton = <Button onClick={this.resetTimer} text="Reset" style="red" />;
         }
 
-        let timer = () => {
-            let timerOutput = '';
-            
-            if(!this.state.done){
-                return timerOutput = (
-                    <Container background='white'>
-                        <ContainerHeader text='Timer'/>
-                        <ContainerContent>
-                            { startButton }
-                            { resetButton }
-                            <p>{this.state.secondsLeft} seconds left</p>
-                        </ContainerContent>
-                    </Container>
-                )
-            }
-            
-            return timerOutput = (
-                <Container background='salmon'>
-                    <ContainerHeader text='Timer'/>
-                    <ContainerContent>  
-                        { startButton }
-                        { resetButton }
-                        <p>{this.state.secondsLeft} seconds left</p>
-                    </ContainerContent>
-                </Container>
-            )
-            
+        let backgroundColor = 'white';
+        if(this.state.done){
+            backgroundColor = 'salmon'
         }
         
         return (
-             timer()
+            <Container background={backgroundColor}>
+                <ContainerHeader text='Timer'/>
+                <ContainerContent>
+                    { startButton }
+                    { resetButton }
+                    <p>{this.state.secondsLeft} seconds left</p>
+                </ContainerContent>
+            </Container>
         )
     }
 }

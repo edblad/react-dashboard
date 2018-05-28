@@ -4,7 +4,6 @@ import styled from 'styled-components';
 const Main = styled.main`
   display: flex;
   flex-direction: column;
-  background-color: #f2f2f7;
   padding: 10px 0;
 
   @media screen and (min-width: 700px){
