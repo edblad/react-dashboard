@@ -54,12 +54,12 @@ class Timer extends Component {
          *  The timeleft will only show while counting down (after pressing the start button)
          */
         let timeLeft = null;
-        let inputField = <input type="number" value={this.state.secondsLeft} onChange={this.handleInput} />;
+        let inputField = <span><label>Hur många sekunder vill du räkna ner?</label><input type="number" value={this.state.secondsLeft} onChange={this.handleInput} /></span>;
         let startButton = <Button onClick={this.countDown} text="Start" style="green" />;
         if(!this.state.startButton || this.state.secondsLeft === '0'){
             startButton = null;
             inputField = null;
-            timeLeft = <p>{this.state.secondsLeft} seconds left</p>;
+            timeLeft = <p>{this.state.secondsLeft} sekunder kvar</p>;
         }
 
         // Only show reset button when the 
