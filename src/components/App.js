@@ -31,7 +31,7 @@ class App extends Component {
             <Clock />
             <Weather />
             <Currency currencyData={this.state.data} />
-            <Timer seconds={5} />
+            <Timer />
             {/*<SearchForm />*/}
           </Main>
        

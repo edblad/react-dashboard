@@ -6,10 +6,14 @@ import Button from './styled/Button';
 
 class Timer extends Component {
     state = {
-        secondsLeft: this.props.seconds,
+        secondsLeft: '',
         startButton: true,
         resetButton: false,
         done: false
+    }
+
+    handleInput = (event) => {
+        this.setState({ secondsLeft: event.target.value });
     }
 
     countDown = () => {
@@ -46,13 +50,21 @@ class Timer extends Component {
     }
 
     render(){
+        /** Only show start button and input field before presssing the start button
+         *  The timeleft will only show while counting down (after pressing the start button)
+         */
+        let timeLeft = null;
+        let inputField = <input type="number" value={this.state.secondsLeft} onChange={this.handleInput} />;
         let startButton = <Button onClick={this.countDown} text="Start" style="green" />;
-        if(!this.state.startButton){
+        if(!this.state.startButton || this.state.secondsLeft === '0'){
             startButton = null;
+            inputField = null;
+            timeLeft = <p>{this.state.secondsLeft} seconds left</p>;
         }
 
+        // Only show reset button when the 
         let resetButton = null;
-        if(this.state.resetButton){
+        if(this.state.resetButton || this.state.secondsLeft === '0'){
             resetButton = <Button onClick={this.resetTimer} text="Reset" style="red" />;
         }
 
@@ -65,9 +77,10 @@ class Timer extends Component {
             <Container background={backgroundColor}>
                 <ContainerHeader text='Timer'/>
                 <ContainerContent>
+                    { inputField }
                     { startButton }
                     { resetButton }
-                    <p>{this.state.secondsLeft} seconds left</p>
+                    { timeLeft }
                 </ContainerContent>
             </Container>
         )
