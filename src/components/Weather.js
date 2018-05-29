@@ -26,14 +26,22 @@ class Weather extends Component {
 
   
     render() {
-        console.log(this.state.latestWeather);
-        const temp = this.state.latestWeather.list && this.state.latestWeather.list[0].main.temp;
+        const { latestWeather } = this.state;
+        console.log(latestWeather);
+        const city = latestWeather.list && latestWeather.city.name;
+        const temp = latestWeather.list && latestWeather.list[0].main.temp;
+        const wind = latestWeather.list && latestWeather.list[0].wind.speed;
+        const description = latestWeather.list && latestWeather.list[0].weather[0].description;
+        const icon = latestWeather.list && <img src={'http://openweathermap.org/img/w/' + latestWeather.list[0].weather[0].icon + '.png'} alt={ description } />;
         
         return (
-            <Container background='white' width='33.3'>
+            <Container background='white' desktopWidth='33.3' tabletWidth='33.3'>
                 <ContainerHeader text='Väder'/>
                 <ContainerContent>
+                    <p>{ city }</p>
                     <p>Temperatur: { temp }</p>
+                    <p>Vindhastighet: { wind } m/s</p>
+                    { icon }
                 </ContainerContent>
             </Container>
         )

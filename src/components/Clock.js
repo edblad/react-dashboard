@@ -23,8 +23,8 @@ class Clock extends Component {
 
     render() {
         return (
-            <Container background='white' width='25'>
-               <ContainerHeader text='Klocka'/>
+            <Container background='white' desktopWidth='25' tabletWidth='50'>
+              <ContainerHeader text='Klocka' />
               <ContainerContent fontSize='3em'>
                 { this.state.date.toLocaleTimeString() }
               </ContainerContent>

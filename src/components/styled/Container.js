@@ -9,9 +9,14 @@ function Container(props) {
         border-radius: 5px;
         background: ${props.background};
         color: #202020;
+        overflow: hidden;
         
         @media screen and (min-width: 700px){
-            width: calc(${props.width}% - 20px);
+            width: calc(${props.tabletWidth}% - 20px);
+        }
+
+        @media screen and (min-width: 1220px){
+            width: calc(${props.desktopWidth}% - 20px);
         }
     `;
 

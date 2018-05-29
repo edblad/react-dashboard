@@ -10,27 +10,17 @@ import styled from 'styled-components';
 import '../App.css';
 
 class App extends Component {
-  state = {
-    postitText: localStorage.getItem('text')
-  }
-
-  saveText = (event) => {
-      this.setState({ postitText: event.target.value  });
-      localStorage.setItem('text', event.target.value);
-  }
-
   render() {
     return (
       <div className="App">
         
           <Header />
           <Main>
-            <Postit value={this.state.postitText} saveText={this.saveText} />
+            <Postit />
             <Clock />
             <Weather />
-            <Currency currencyData={this.state.data} />
+            <Currency />
             <Timer />
-            {/*<SearchForm />*/}
           </Main>
        
       </div>
