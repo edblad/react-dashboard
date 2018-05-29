@@ -3,7 +3,7 @@ import TextArea from './styled/TextArea';
 
 function Postit(props) {
     return ( 
-        <TextArea value={props.value} onChange={props.saveText} name="text" placeholder="Anteckningar" />
+        <TextArea value={props.value} onChange={props.saveText} placeholder='Anteckningar' width='75' />
     )
 }
 

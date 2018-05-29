@@ -26,49 +26,15 @@ class Weather extends Component {
 
   
     render() {
-        console.log(this.state.latestWeather.list)
-
-
-        
-        // let newArr = Object.keys(this.state.latestWeather);
-        // console.log(newArr);
-
-        Object.keys(this.state.latestWeather).map((key, index) => {
-            const myItem = this.state.latestWeather[key]
-            // return <MyComponent myItem={myItem} key={index} />
-            console.log(myItem);
-            console.log(key);
-          })
-
-        // const currentWeather = this.state.latestWeather.map((item, index) => {
-        //     console.log(item);
-        // });
-
-
-
-
-        // var data1 = [1, 4, 9, 16];
-
-        // // pass a function to map
-        // const map1 = data1.map(x => x * 2);
-        
-        // console.log(map1);
-
-        //const { searchTerm, data } = this.state;
-        //console.log(data);
-        // const currentWeather = data.map((item, index) => {
-      
-        //     // console.log(data)
-        //     // console.log(item);
-        //     // console.log(index);
-        //     return <div key={index}>hej</div>
-          
-        // });
+        console.log(this.state.latestWeather);
+        const temp = this.state.latestWeather.list && this.state.latestWeather.list[0].main.temp;
         
         return (
-            <Container background='white'>
+            <Container background='white' width='33.3'>
                 <ContainerHeader text='Väder'/>
-                <ContainerContent>Väder</ContainerContent>
+                <ContainerContent>
+                    <p>Temperatur: { temp }</p>
+                </ContainerContent>
             </Container>
         )
     }

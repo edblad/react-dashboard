@@ -11,7 +11,7 @@ function Container(props) {
         color: #202020;
         
         @media screen and (min-width: 700px){
-            width: calc(50% - 20px);
+            width: calc(${props.width}% - 20px);
         }
     `;
 

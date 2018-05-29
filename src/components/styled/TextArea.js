@@ -1,7 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const TextArea = styled.textarea`
+function TextArea(props) {
+    const TextAreaStyle = styled.textarea`
     margin: 10px;
     padding: 15px;
     border: none;
@@ -10,8 +11,11 @@ const TextArea = styled.textarea`
     color: #fff;
 
     @media screen and (min-width: 700px){
-        width: calc(50% - 20px);
+        width: calc(${props.width}% - 20px);
     }
 `;
+
+    return (<TextAreaStyle value={props.value} onChange={props.onChange} placeholder={props.placeholder} />);
+}
 
 export default TextArea;

@@ -35,7 +35,7 @@ class Currency extends Component {
 
     render(){
         return (
-            <Container background='white'>
+            <Container background='white' width='33.3'>
                 <ContainerHeader text='Valutakurs'/>
                 <ContainerContent>
                     <Button onClick={this.fetchCurrency} text="Uppdatera" style="green" />
