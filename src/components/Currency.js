@@ -7,10 +7,7 @@ import Button from './styled/Button';
 class Currency extends Component {
     state = {
         date: '',
-        rates: {
-            EUR: '',
-            SEK: ''
-        }
+        data: []
     }
 
     componentDidMount() {
@@ -21,7 +18,7 @@ class Currency extends Component {
         fetch('http://data.fixer.io/api/latest?access_key=fe21b7321aa53d1a4dd706d7fff65038')
         .then(response => response.json())
         .then((data) => {
-            this.setState({ date: data.date, rates: { SEK: data.rates.SEK, EUR: data.rates.EUR } })
+            this.setState({ data })
         })
         .catch(error => {
             console.log(error);
@@ -29,18 +26,27 @@ class Currency extends Component {
     }
 
     calcCurrency = () => {
-        let sum = this.state.rates.EUR / this.state.rates.SEK;
-        return sum.toFixed(3);
+        const { data } = this.state;
+        let SEK = data.rates && data.rates.SEK;
+        let EUR = data.rates && data.rates.EUR;
+        let date = data.date && data.date;
+        let sum = EUR / SEK;
+        return sum.toFixed(2);
     }
 
     render(){
+        const { data } = this.state;
+        let SEK = data.rates && data.rates.SEK.toFixed(2);
+        let EUR = data.rates && data.rates.EUR;
+        let date = data.date && data.date;
+
         return (
-            <Container background='white' desktopWidth='33.3' tabletWidth='33.3'>
+            <Container background='white' desktopWidth='33.3' tabletWidth='50'>
                 <ContainerHeader text='Valutakurs'/>
                 <ContainerContent>
                     <Button onClick={this.fetchCurrency} text="Uppdatera" style="green" />
-                    <p>{ this.state.date }</p>
-                    <p>{this.state.rates.EUR} euro kostar {this.state.rates.SEK} kr</p>
+                    <p>{ date }</p>
+                    <p>{ EUR } euro kostar { SEK } kr</p>
                     <p>1 kr kostar { this.calcCurrency() } euro</p>
                 </ContainerContent>
             </Container>

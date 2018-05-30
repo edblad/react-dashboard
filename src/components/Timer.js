@@ -74,7 +74,7 @@ class Timer extends Component {
         }
         
         return (
-            <Container background={backgroundColor} desktopWidth='33.3' tabletWidth='33.3'>
+            <Container background={backgroundColor} desktopWidth='33.3' tabletWidth='100'>
                 <ContainerHeader text='Timer'/>
                 <ContainerContent>
                     { inputField }
