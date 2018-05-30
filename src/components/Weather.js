@@ -39,10 +39,10 @@ class Weather extends Component {
             <Container background='white' desktopWidth='33.3' tabletWidth='50'>
                 <ContainerHeader text='Väder'/>
                 <ContainerContent>
-                    { icon }
-                    <p>{ city }</p>
-                    <Paragraph fontSize='2em'>{ temp }°C</Paragraph>
-                    <p>Vind: { wind } m/s</p>
+                    <Paragraph align='right'>{ icon }</Paragraph>
+                    <Paragraph fontSize='1.2em'>{ city }</Paragraph>
+                    <Paragraph fontSize='2.3em'>{ temp }°C</Paragraph>
+                    <Paragraph>Vind: { wind } m/s</Paragraph>
                 </ContainerContent>
             </Container>
         )

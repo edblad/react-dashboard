@@ -44,10 +44,10 @@ class Currency extends Component {
             <Container background='white' desktopWidth='33.3' tabletWidth='50'>
                 <ContainerHeader text='Valutakurs'/>
                 <ContainerContent>
-                    <Button onClick={this.fetchCurrency} text="Uppdatera" style="green" />
                     <p>{ date }</p>
                     <p>{ EUR } euro kostar { SEK } kr</p>
                     <p>1 kr kostar { this.calcCurrency() } euro</p>
+                    <Button onClick={this.fetchCurrency} text="Uppdatera" style="green" />
                 </ContainerContent>
             </Container>
         );

@@ -7,13 +7,14 @@ import Button from './styled/Button';
 class Timer extends Component {
     state = {
         secondsLeft: '',
+        disabledButton: true,
         startButton: true,
         resetButton: false,
         done: false
     }
 
     handleInput = (event) => {
-        this.setState({ secondsLeft: event.target.value });
+        this.setState({ secondsLeft: event.target.value, disabledButton: false });
     }
 
     countDown = () => {
@@ -42,7 +43,8 @@ class Timer extends Component {
 
     resetTimer = () => {
         this.setState({ 
-            secondsLeft: this.props.seconds, 
+            secondsLeft: this.props.seconds,
+            disabledButton: true,
             resetButton: false,
             startButton: true,
             done: false
@@ -55,7 +57,7 @@ class Timer extends Component {
          */
         let feedback = <p>Hur många sekunder vill du räkna ner?</p>;
         let inputField = <span><input type="number" value={this.state.secondsLeft} onChange={this.handleInput} /></span>;
-        let startButton = <Button onClick={this.countDown} text="Starta" style="green" />;
+        let startButton = <Button onClick={this.countDown} disabled={this.state.disabledButton} text="Starta" style="green" />;
         if(!this.state.startButton || this.state.secondsLeft === '0'){
             startButton = null;
             inputField = null;
@@ -68,10 +70,8 @@ class Timer extends Component {
             resetButton = <Button onClick={this.resetTimer} text="Återställ" style="red" />;
         }
 
-        let backgroundColor = 'white';
-        if(this.state.done){
-            backgroundColor = 'salmon'
-        }
+        // Changes the background color when time is up
+        let backgroundColor = this.state.done ? 'salmon' : 'white';
         
         return (
             <Container background={backgroundColor} desktopWidth='33.3' tabletWidth='100'>

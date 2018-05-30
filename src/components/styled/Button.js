@@ -36,7 +36,7 @@ function Button(props) {
     `;
 
     return (
-        <ButtonStyle onClick={props.onClick}>
+        <ButtonStyle onClick={props.onClick} disabled={props.disabled}>
             { props.text }
         </ButtonStyle>
     )
