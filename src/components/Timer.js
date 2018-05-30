@@ -53,19 +53,19 @@ class Timer extends Component {
         /** Only show start button and input field before presssing the start button
          *  The timeleft will only show while counting down (after pressing the start button)
          */
-        let timeLeft = null;
-        let inputField = <span><label>Hur många sekunder vill du räkna ner?</label><input type="number" value={this.state.secondsLeft} onChange={this.handleInput} /></span>;
-        let startButton = <Button onClick={this.countDown} text="Start" style="green" />;
+        let feedback = <p>Hur många sekunder vill du räkna ner?</p>;
+        let inputField = <span><input type="number" value={this.state.secondsLeft} onChange={this.handleInput} /></span>;
+        let startButton = <Button onClick={this.countDown} text="Starta" style="green" />;
         if(!this.state.startButton || this.state.secondsLeft === '0'){
             startButton = null;
             inputField = null;
-            timeLeft = <p>{this.state.secondsLeft} sekunder kvar</p>;
+            feedback = <p>{this.state.secondsLeft} sekunder kvar</p>;
         }
 
         // Only show reset button when the 
         let resetButton = null;
         if(this.state.resetButton || this.state.secondsLeft === '0'){
-            resetButton = <Button onClick={this.resetTimer} text="Reset" style="red" />;
+            resetButton = <Button onClick={this.resetTimer} text="Återställ" style="red" />;
         }
 
         let backgroundColor = 'white';
@@ -77,8 +77,8 @@ class Timer extends Component {
             <Container background={backgroundColor} desktopWidth='33.3' tabletWidth='100'>
                 <ContainerHeader text='Timer'/>
                 <ContainerContent>
+                    { feedback }
                     { inputField }
-                    { timeLeft }
                     { startButton }
                     { resetButton }
                 </ContainerContent>
