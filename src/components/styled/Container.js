@@ -3,12 +3,12 @@ import styled from 'styled-components';
 
 function Container(props) {
     const ContainerStyle = styled.div`
-        padding: 20px;
         margin: 10px;
-        border: solid 1px #d2d2db;
+        border: solid 2px #707a72;
         border-radius: 5px;
         background: ${props.background};
         color: #202020;
+        box-shadow: 5px 5px #717b73;
         overflow: hidden;
         
         @media screen and (min-width: 700px){

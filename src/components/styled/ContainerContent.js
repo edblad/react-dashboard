@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 function ContainerContent(props) {
     const ContainerContentStyle = styled.div`
-        padding-top: 10px;
+        padding: 10px 20px 20px 20px;
         font-size: ${props.fontSize};
     `;
 

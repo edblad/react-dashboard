@@ -12,8 +12,7 @@ import '../App.css';
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        
+      <div>
           <Header />
           <Main>
             <Postit />
@@ -22,7 +21,6 @@ class App extends Component {
             <Currency />
             <Timer />
           </Main>
-       
       </div>
     );
   }

@@ -78,9 +78,9 @@ class Timer extends Component {
                 <ContainerHeader text='Timer'/>
                 <ContainerContent>
                     { inputField }
+                    { timeLeft }
                     { startButton }
                     { resetButton }
-                    { timeLeft }
                 </ContainerContent>
             </Container>
         )

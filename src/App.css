@@ -1,5 +1,12 @@
 body{
-  background-color: #f2f2f7;
+  background-color: #c5dac8; 
+  /* background: 
+    linear-gradient(135deg, #ECEDDC 30%, transparent 25%) -50px 0,
+    linear-gradient(225deg, #ECEDDC 30%, transparent 25%) -50px 0,
+    linear-gradient(315deg, #ECEDDC 30%, transparent 25%),
+    linear-gradient(45deg, #ECEDDC 30%, transparent 25%);	
+  background-size: 100px 100px;
+  background-color: #fff; */
 }
 
 .App {

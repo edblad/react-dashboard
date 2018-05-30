@@ -8,10 +8,10 @@ function Button(props) {
     let hoverBorderColor = '';
 
     if(props.style === 'green'){
-        backgroundColor = '#5cb85c';
-        hoverBackgroundColor = '#449d44';
-        borderColor = '#4cae4c';
-        hoverBorderColor = '#398439';
+        backgroundColor = '#709c78';
+        hoverBackgroundColor = '#598261';
+        borderColor = '#707a72';
+        hoverBorderColor = '#285f28';
     }
     if(props.style === 'red'){
         backgroundColor = '#d9534f';
