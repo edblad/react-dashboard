@@ -28,6 +28,8 @@ function Button(props) {
         border-radius: 3px;
         padding: 4px 10px;
         cursor: pointer;
+        float: right;
+        margin-top: 10px; 
 
         &:hover {
             background-color: ${ hoverBackgroundColor };

@@ -3,6 +3,7 @@ import Container from './styled/Container';
 import ContainerHeader from './styled/ContainerHeader';
 import ContainerContent from './styled/ContainerContent';
 import Button from './styled/Button';
+import Paragraph from './styled/Paragraph';
 
 class Currency extends Component {
     state = {
@@ -29,7 +30,7 @@ class Currency extends Component {
         const { data } = this.state;
         let SEK = data.rates && data.rates.SEK;
         let EUR = data.rates && data.rates.EUR;
-        let date = data.date && data.date;
+        
         let sum = EUR / SEK;
         return sum.toFixed(2);
     }
@@ -44,9 +45,9 @@ class Currency extends Component {
             <Container background='white' desktopWidth='33.3' tabletWidth='50'>
                 <ContainerHeader text='Valutakurs'/>
                 <ContainerContent>
-                    <p>{ date }</p>
-                    <p>{ EUR } euro kostar { SEK } kr</p>
-                    <p>1 kr kostar { this.calcCurrency() } euro</p>
+                    <Paragraph fontColor="#ccc" fontSize="0.8em">{ date }</Paragraph>
+                    <Paragraph>{ EUR } EUR > { SEK } SEK</Paragraph>
+                    <Paragraph>1 SEK > { this.calcCurrency() } EUR</Paragraph>
                     <Button onClick={this.fetchCurrency} text="Uppdatera" style="green" />
                 </ContainerContent>
             </Container>

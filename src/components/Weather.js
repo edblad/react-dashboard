@@ -6,8 +6,7 @@ import Paragraph from './styled/Paragraph';
 
 class Weather extends Component {
     state = {
-        latestWeather: [],
-        searchTerm: ''
+        latestWeather: []
     }
 
     componentDidMount() {
@@ -28,7 +27,6 @@ class Weather extends Component {
   
     render() {
         const { latestWeather } = this.state;
-        console.log(latestWeather);
         const city = latestWeather.list && latestWeather.city.name;
         const temp = latestWeather.list && latestWeather.list[0].main.temp.toFixed(0);
         const wind = latestWeather.list && latestWeather.list[0].wind.speed;

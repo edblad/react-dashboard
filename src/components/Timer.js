@@ -3,6 +3,8 @@ import Container from './styled/Container';
 import ContainerHeader from './styled/ContainerHeader';
 import ContainerContent from './styled/ContainerContent';
 import Button from './styled/Button';
+import InputField from './styled/InputField';
+import Paragraph from './styled/Paragraph';
 
 class Timer extends Component {
     state = {
@@ -43,10 +45,10 @@ class Timer extends Component {
 
     resetTimer = () => {
         this.setState({ 
-            secondsLeft: this.props.seconds,
+            secondsLeft: '',
             disabledButton: true,
-            resetButton: false,
             startButton: true,
+            resetButton: false,
             done: false
         });
     }
@@ -55,16 +57,16 @@ class Timer extends Component {
         /** Only show start button and input field before presssing the start button
          *  The timeleft will only show while counting down (after pressing the start button)
          */
-        let feedback = <p>Hur många sekunder vill du räkna ner?</p>;
-        let inputField = <span><input type="number" value={this.state.secondsLeft} onChange={this.handleInput} /></span>;
+        let feedback = <Paragraph>Hur många sekunder vill du räkna ner?</Paragraph>;
+        let inputField = <InputField type="number" value={this.state.secondsLeft} onChange={this.handleInput} />;
         let startButton = <Button onClick={this.countDown} disabled={this.state.disabledButton} text="Starta" style="green" />;
         if(!this.state.startButton || this.state.secondsLeft === '0'){
             startButton = null;
             inputField = null;
-            feedback = <p>{this.state.secondsLeft} sekunder kvar</p>;
+            feedback = <Paragraph fontSize="1.5em">{this.state.secondsLeft} sekunder kvar</Paragraph>;
         }
 
-        // Only show reset button when the 
+        // Only show reset button when time is up
         let resetButton = null;
         if(this.state.resetButton || this.state.secondsLeft === '0'){
             resetButton = <Button onClick={this.resetTimer} text="Återställ" style="red" />;
