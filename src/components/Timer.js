@@ -24,6 +24,7 @@ class Timer extends Component {
         );
     }
 
+    // Counting down every second
     countDown = () => {
         this.setState({ startButton: false });
 
@@ -33,6 +34,7 @@ class Timer extends Component {
         );
     }
 
+    // As long as there is time left count down until 0 then set the state to be done
     tick = (intervalId) => {
         if (this.state.secondsLeft > 0) {
             this.setState({ 

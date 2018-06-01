@@ -7,8 +7,9 @@ import Paragraph from './styled/Paragraph';
 
 class Currency extends Component {
     state = {
-        date: '',
-        data: []
+        date: null,
+        data: [],
+        error: null
     }
 
     componentDidMount() {
@@ -20,38 +21,49 @@ class Currency extends Component {
         .then(response => response.json())
         .then((data) => {
             this.setState({ data })
-        })
-        .catch(error => {
-            console.log(error);
-        })
+        },
+        (error) => {
+            this.setState({ error })
+        });
     }
 
+    // Calculates how much a Euro costs in SEK
     calcCurrency = () => {
         const { data } = this.state;
         let SEK = data.rates && data.rates.SEK;
         let EUR = data.rates && data.rates.EUR;
 
-        let sum = EUR / SEK;
-        return sum.toFixed(2);
+        let result = EUR / SEK;
+        return result.toFixed(2);
     }
 
     render(){
-        const { data } = this.state;
-        let SEK = data.rates && data.rates.SEK.toFixed(2);
-        let EUR = data.rates && data.rates.EUR;
-        let date = data.date && data.date;
+        const { data, error } = this.state;
+        const SEK = data.rates && data.rates.SEK.toFixed(2);
+        const date = data.date && data.date;
 
-        return (
-            <Container background='white' desktopWidth='33.3' tabletWidth='50'>
-                <ContainerHeader text='Valutakurs'/>
-                <ContainerContent>
-                    <Paragraph fontColor="#ccc" fontSize="0.8em">{ date }</Paragraph>
-                    <Paragraph>{ EUR } EUR > { SEK } SEK</Paragraph>
-                    <Paragraph>1 SEK > { this.calcCurrency() } EUR</Paragraph>
-                    <Button onClick={this.fetchCurrency} text="Uppdatera" buttonColor="green" />
-                </ContainerContent>
-            </Container>
-        );
+        if(error) {
+            return (
+                <Container background='white' desktopWidth='33.3' tabletWidth='50'>
+                    <ContainerHeader text='Valutakurs'/>
+                    <ContainerContent>
+                        <Paragraph>{ error.message }</Paragraph>
+                    </ContainerContent>
+                </Container>
+            )
+        } else {
+            return (
+                <Container background='white' desktopWidth='33.3' tabletWidth='50'>
+                    <ContainerHeader text='Valutakurs'/>
+                    <ContainerContent>
+                        <Paragraph fontColor="#ccc" fontSize="0.8em">{ date }</Paragraph>
+                        <Paragraph>1 EUR > { SEK } SEK</Paragraph>
+                        <Paragraph>1 SEK > { this.calcCurrency() } EUR</Paragraph>
+                        <Button onClick={this.fetchCurrency} text="Uppdatera" buttonColor="green" />
+                    </ContainerContent>
+                </Container>
+            )
+        }
     }
 }
 
