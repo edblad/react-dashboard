@@ -5,7 +5,6 @@ function ContainerContent(props) {
     const ContainerContentStyle = styled.div`
         padding-top: 10px;
         font-size: ${props.fontSize};
-
     `;
 
     return (<ContainerContentStyle>{ props.children }</ContainerContentStyle>);

@@ -30,7 +30,7 @@ class Currency extends Component {
         const { data } = this.state;
         let SEK = data.rates && data.rates.SEK;
         let EUR = data.rates && data.rates.EUR;
-        
+
         let sum = EUR / SEK;
         return sum.toFixed(2);
     }
@@ -48,7 +48,7 @@ class Currency extends Component {
                     <Paragraph fontColor="#ccc" fontSize="0.8em">{ date }</Paragraph>
                     <Paragraph>{ EUR } EUR > { SEK } SEK</Paragraph>
                     <Paragraph>1 SEK > { this.calcCurrency() } EUR</Paragraph>
-                    <Button onClick={this.fetchCurrency} text="Uppdatera" style="green" />
+                    <Button onClick={this.fetchCurrency} text="Uppdatera" buttonColor="green" />
                 </ContainerContent>
             </Container>
         );

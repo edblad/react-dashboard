@@ -7,13 +7,13 @@ function Button(props) {
     let borderColor = '';
     let hoverBorderColor = '';
 
-    if(props.style === 'green'){
+    if(props.buttonColor === 'green'){
         backgroundColor = '#709c78';
         hoverBackgroundColor = '#598261';
         borderColor = '#707a72';
         hoverBorderColor = '#285f28';
     }
-    if(props.style === 'red'){
+    if(props.buttonColor === 'red'){
         backgroundColor = '#d9534f';
         hoverBackgroundColor = '#c9302c';
         borderColor = '#d43f3a';
@@ -34,6 +34,11 @@ function Button(props) {
         &:hover {
             background-color: ${ hoverBackgroundColor };
             border-color: ${ hoverBorderColor };
+        }
+
+        &:disabled {
+            background-color: #ccc;
+            border-color: #ababab;
         }
     `;
 

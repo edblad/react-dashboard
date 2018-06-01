@@ -13,6 +13,7 @@ class Weather extends Component {
         this.fetchWeather();
     }
 
+    // Fetch weather and save it in state
     fetchWeather = () => {
         fetch('http://api.openweathermap.org/data/2.5/forecast?units=metric&id=2673722&APPID=32f9c59ac069b4b06223120ca2052ef5')
         .then(response => response.json())
@@ -26,6 +27,7 @@ class Weather extends Component {
 
   
     render() {
+        // Save the city, latest temp, and icon in variables
         const { latestWeather } = this.state;
         const city = latestWeather.list && latestWeather.city.name;
         const temp = latestWeather.list && latestWeather.list[0].main.temp.toFixed(0);
@@ -35,7 +37,7 @@ class Weather extends Component {
         
         return (
             <Container background='white' desktopWidth='33.3' tabletWidth='50'>
-                <ContainerHeader text='Väder'/>
+                <ContainerHeader text='Väder' />
                 <ContainerContent>
                     <Paragraph align='right'>{ icon }</Paragraph>
                     <Paragraph fontSize='1.2em'>{ city }</Paragraph>
